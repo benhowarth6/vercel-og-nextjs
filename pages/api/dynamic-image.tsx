@@ -7,9 +7,9 @@ export const config = {
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
-  const username = searchParams.get('username')
-  if (!username) {
-    return new ImageResponse(<>{'Visit with "?username=vercel"'}</>, {
+  const repairID = searchParams.get('repairID')
+  if (!repairID) {
+    return new ImageResponse(<>{'Visit with "?repairID=289"'}</>, {
       width: 1200,
       height: 630,
     })
@@ -22,6 +22,7 @@ export default async function handler(req: NextRequest) {
           fontSize: 60,
           color: 'black',
           background: '#f6f6f6',
+          fontWeight: '800',
           width: '100%',
           height: '100%',
           paddingTop: 50,
@@ -35,12 +36,10 @@ export default async function handler(req: NextRequest) {
         <img
           alt="avatar"
           width="256"
-          src={`https://github.com/${username}.png`}
-          style={{
-            borderRadius: 128,
-          }}
+          src={`https://db.ipatchrepairs.co.uk/logo-solo.svg
+          `}
         />
-        <p>github.com/{username}</p>
+        <p>Repair ID: {repairID}</p>
       </div>
     ),
     {
